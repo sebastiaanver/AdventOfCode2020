@@ -2,7 +2,7 @@ import numpy as np
 import re
 
 
-def part_1(lines):
+def part_1(lines: list) -> None:
     correct_passport = 0
     reg_exp = re.compile("([a-z]{3}):")
 
@@ -15,11 +15,11 @@ def part_1(lines):
     print("Number of correct passports: ", correct_passport)
 
 
-def special_match(strg, search=re.compile(r'[a-f0-9]{6}').search):
-    return bool(search(strg))
+def special_match(string: str, search=re.compile(r'[a-f0-9]{6}').search) -> bool:
+    return bool(search(string))
 
 
-def check_fields(field_name,  value):
+def check_fields(field_name:  str,  value: str) -> bool:
     if field_name == "byr":
         value = int(value)
         return 1920 <= value <= 2002
@@ -50,7 +50,7 @@ def check_fields(field_name,  value):
         return True
 
 
-def part_2(lines):
+def part_2(lines: list) -> None:
     correct_passport = 0
     for passport in lines:
         checks = []

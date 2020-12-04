@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def part_1(lines, right):
+def part_1(lines: list, right: int) -> None:
     x = 0
     tree_counter = 0
     for line in lines:
@@ -14,7 +14,7 @@ def part_1(lines, right):
     print("Number of trees encountered on the path: ", tree_counter)
 
 
-def part_2(lines, slopes):
+def part_2(lines: list, slopes: list) -> None:
     trees = []
 
     for right, down in slopes:

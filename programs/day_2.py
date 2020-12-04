@@ -1,4 +1,5 @@
-def part_1(lines):
+
+def part_1(lines: list) -> None:
     valid_passwords = 0
     for line in lines:
         line = line.strip('\n')
@@ -13,7 +14,7 @@ def part_1(lines):
     print("Number of valid passwords:", valid_passwords)
 
 
-def part_2(lines):
+def part_2(lines: list) -> None:
     valid_passwords = 0
     for line in lines:
         line = line.strip('\n')
