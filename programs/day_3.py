@@ -5,7 +5,7 @@ def part_1(lines: list, right: int) -> None:
     x = 0
     tree_counter = 0
     for line in lines:
-        line = line.strip('\n')*100
+        line = line.strip("\n") * 100
 
         if line[x] == "#":
             tree_counter += 1
@@ -22,7 +22,7 @@ def part_2(lines: list, slopes: list) -> None:
         tree_counter = 0
         lines_t = [line_t for idx, line_t in enumerate(lines) if idx % down == 0]
         for line in lines_t:
-            line = line.strip('\n') * 100
+            line = line.strip("\n") * 100
 
             if line[x] == "#":
                 tree_counter += 1
@@ -33,7 +33,7 @@ def part_2(lines: list, slopes: list) -> None:
     print("Product of trees found on the paths: ", np.prod(trees))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     file_name = "../input_files/day_3.txt"
     file = open(file_name, "r")
     lines = file.readlines()

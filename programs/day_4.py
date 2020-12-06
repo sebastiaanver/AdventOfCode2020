@@ -1,4 +1,3 @@
-import numpy as np
 import re
 
 
@@ -9,17 +8,19 @@ def part_1(lines: list) -> None:
     for passport in lines:
         passport_fields_re = re.findall(reg_exp, passport)
 
-        if (len(passport_fields_re) == 8) or (len(passport_fields_re) == 7 and "cid" not in passport_fields_re):
+        if (len(passport_fields_re) == 8) or (
+            len(passport_fields_re) == 7 and "cid" not in passport_fields_re
+        ):
             correct_passport += 1
 
     print("Number of correct passports: ", correct_passport)
 
 
-def special_match(string: str, search=re.compile(r'[a-f0-9]{6}').search) -> bool:
+def special_match(string: str, search=re.compile(r"[a-f0-9]{6}").search) -> bool:
     return bool(search(string))
 
 
-def check_fields(field_name:  str,  value: str) -> bool:
+def check_fields(field_name: str, value: str) -> bool:
     if field_name == "byr":
         value = int(value)
         return 1920 <= value <= 2002
@@ -63,13 +64,15 @@ def part_2(lines: list) -> None:
                 checks.append(check_fields(field_name, value))
                 values.append(field_name)
 
-        if len(values) == sum(checks) and ((len(values) == 8) or (len(values) == 7 and "cid" not in values)):
+        if len(values) == sum(checks) and (
+            (len(values) == 8) or (len(values) == 7 and "cid" not in values)
+        ):
             correct_passport += 1
 
     print("Number of correct passports: ", correct_passport)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     file_name = "../input_files/day_4.txt"
     file = open(file_name, "r")
     lines = "".join(file.readlines())
