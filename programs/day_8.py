@@ -1,8 +1,6 @@
+def part_1(lines: list) -> (bool, int):
 
-
-def part_1(lines: list):
-
-    acc,  line_nr = 0, 0
+    acc, line_nr = 0, 0
     visited = []
 
     while True:

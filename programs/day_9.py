@@ -1,24 +1,24 @@
-
-def part_1(lines: list):
+def part_1(sequence: list) -> (int, list):
     queue = []
-    for line in lines:
+    for number in sequence:
+        number = int(number)
         if len(queue) == 25:
-            if sum([(int(line) - item in queue) for item in queue]) == 0:
-                return int(line), queue
+            if sum([(number - item in queue) for item in queue]) == 0:
+                return number, queue
             queue.pop(0)
-            queue.append(int(line))
+            queue.append(number)
         else:
-            queue.append(int(line))
+            queue.append(number)
 
 
-def part_2(lines: list) -> None:
-    number, queue = part_1(lines)
+def part_2(sequence: list) -> None:
+    number, queue = part_1(sequence)
 
     start_idx = 0
-    while True and start_idx <= len(lines) - 1:
+    while True and start_idx <= len(sequence) - 1:
         temp_list, idx = [], start_idx
-        while sum(temp_list) <= number and idx <= len(lines) - 1:
-            temp_list.append(int(lines[idx]))
+        while sum(temp_list) <= number and idx <= len(sequence) - 1:
+            temp_list.append(int(sequence[idx]))
             idx += 1
 
             if sum(temp_list) == number and len(temp_list) >= 2:
